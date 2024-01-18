@@ -255,3 +255,4 @@ C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\re
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.pdb
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.genruntimeconfig.cache
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\ref\CampusFeedApi.dll
+C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.sourcelink.json
