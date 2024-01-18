@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using CampusFeedApi.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using CampusFeedApi.Dto;
 
 namespace CampusFeedApi.Data
 {
@@ -61,6 +60,11 @@ namespace CampusFeedApi.Data
         }
 
         void IRepository<CampusFeedInfo>.Update<K>(K id, CampusFeedInfo input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(CampusFeedDto feed)
         {
             throw new NotImplementedException();
         }

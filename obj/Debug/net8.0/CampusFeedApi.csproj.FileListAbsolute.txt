@@ -241,7 +241,6 @@ C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\Ca
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.csproj.CoreCompileInputs.cache
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\CampusFeedApi.sourcelink.json
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Hp\source\repos\Campus\backend\myUnis\CampusFeedApi\obj\Debug\net8.0\staticwebassets\msbuild.CampusFeedApi.Microsoft.AspNetCore.StaticWebAssets.props

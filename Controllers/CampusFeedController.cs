@@ -1,12 +1,7 @@
-using System.Runtime.Intrinsics.Arm;
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using CampusFeedApi.Data;
 using CampusFeedApi.Dto;
-using CampusFeedApi.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
 namespace CampusFeedApi.Controllers
 {
@@ -23,16 +18,28 @@ namespace CampusFeedApi.Controllers
             _infosRepository = infosRepository;
         }
 
-        [HttpGet()]
-        public async Task<IActionResult> GetList()
+        [HttpGet("by-Feed/{CampusFeedId}")]
+        public async Task<IActionResult> GetListByFeed(string CampusFeedId)
         {
-            var Feed = await _infosRepository.GetAllAsync();
-            if (Feed == null || !Feed.Any())
+            var Feed = await _infosRepository.GetById(CampusFeedId);
+
+            if (Feed == null)
             {
-                return Ok("Empty");
+                return NotFound("Feed not found");
             }
-            _logger.LogInformation("Getting all list");
-            return Ok(Feed);
+
+            _logger.LogInformation("Getting feed by ID");
+
+            // convert to DTO
+            var feedReturn = new CampusFeedDto();
+            feedReturn.CampusFeedId = Feed.CampusFeedId;
+            feedReturn.Content = Feed.Content;
+            feedReturn.Category = Feed.Category;
+            feedReturn.Date = Feed.Date;
+            feedReturn.Like = Feed.Like;
+            feedReturn.Dislike = Feed.Dislike;
+
+            return Ok(feedReturn);
         }
 
 
@@ -42,33 +49,35 @@ namespace CampusFeedApi.Controllers
         {
             try
             {
-                var Feed = new CampusFeedInfo("1")
+                var feed = new CampusFeedDto
                 {
-                    Content = "SampleContent",
-                    Category = "SampleCategory",
-                    Date = DateTime.Parse("2024-01-17T12:00:00"), // Convert string to DateTime
-                    Like = 10,
-                    Dislike = 2
+                    CampusFeedId = input.CampusFeedId,
+                    Content = input.Content,
+                    Category = input.Category,
+                    Date = input.Date,
+                    Like = input.Like,
+                    Dislike = input.Dislike
                 };
 
-                _infosRepository.Add(Feed);
+                _infosRepository.Add(feed);
+
                 if (await _infosRepository.SaveAllChangesAsync())
                 {
                     return Ok("Feed Created Successfully");
                 }
 
                 return BadRequest("Error");
-
             }
             catch (DbUpdateException ex)
             {
-                return BadRequest("Error: A unique constraint would be violated it could be id has been used.");
+                return BadRequest("Error: A unique constraint would be violated, it could be the ID has already been used.");
             }
             catch (Exception ex)
             {
                 return StatusCode(500, "An error occurred while processing the request.");
             }
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(CampusFeedDto input)
@@ -113,4 +122,3 @@ namespace CampusFeedApi.Controllers
 
     }
 }
-

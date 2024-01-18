@@ -1,11 +1,11 @@
+using CampusFeedApi.Dto;
 using CampusFeedApi.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CampusFeedApi.Data
 {
     public interface ICampusFeedInfoRepository : IRepository<CampusFeedInfo>
     {
+        void Add(CampusFeedDto feed);
         Task<List<CampusFeedInfo>> GetAllAsync();
         Task<CampusFeedInfo?> GetById(string id);
 

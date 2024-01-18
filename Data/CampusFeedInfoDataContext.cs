@@ -1,7 +1,5 @@
 using CampusFeedApi.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
 
 namespace CampusFeedApi.Data
 {
